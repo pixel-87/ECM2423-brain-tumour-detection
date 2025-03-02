@@ -1,6 +1,9 @@
 # Dataset
 data/
 
+# models - too big
+models/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
