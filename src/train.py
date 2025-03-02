@@ -4,10 +4,9 @@ import numpy as np
 import os
 import cv2
 import logging
-from visualization import plot_training_history
 
 # Setup logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Function to load images from a folder
 def load_images_from_folder(folder):
@@ -42,8 +41,8 @@ model = create_model()
 history = model.fit(
     X_train, y_train, 
     validation_data=(X_test, y_test),
-    epochs=EPOCHS,  # Increase if needed
-    batch_size=BATCH_SIZE
+    epochs=EPOCHS,  # Use EPOCHS from config
+    batch_size=BATCH_SIZE  # Use BATCH_SIZE from config
 )
 
 # Evaluate Model

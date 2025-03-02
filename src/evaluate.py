@@ -4,6 +4,7 @@ import numpy as np
 import os
 import cv2
 import logging
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -38,3 +39,16 @@ model = load_model('models/trained_model.keras')  # Update with the actual path 
 # Evaluate the model
 test_loss, test_acc = model.evaluate(X_test, y_test)
 logging.info(f"Test Accuracy: {test_acc * 100:.2f}%")
+
+# Predict the labels
+y_pred = (model.predict(X_test) > 0.5).astype("int32")
+
+# Calculate additional metrics
+logging.info("Classification Report:")
+logging.info("\n" + classification_report(y_test, y_pred, target_names=["No Tumor", "Tumor"]))
+
+logging.info("Confusion Matrix:")
+logging.info("\n" + str(confusion_matrix(y_test, y_pred)))
+
+roc_auc = roc_auc_score(y_test, y_pred)
+logging.info(f"ROC-AUC: {roc_auc:.2f}")

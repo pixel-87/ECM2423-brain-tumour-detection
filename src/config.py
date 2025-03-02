@@ -8,8 +8,8 @@ TEST_FOLDER = os.path.join(PROCESSED_DATASET_PATH, "test")
 
 # Image processing
 TARGET_SIZE = (224, 224)  # Image size for CNN input
-AUGMENTATION_MULTIPLIER = 2  # Create 2x more images
+AUGMENTATION_MULTIPLIER = 10  # Create 10x more images
 
 # Training parameters
-EPOCHS = 15
-BATCH_SIZE = 16
+EPOCHS = 10
+BATCH_SIZE = 8
