@@ -4,6 +4,7 @@ import numpy as np
 import os
 import cv2
 import logging
+from visualization import plot_training_history
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
